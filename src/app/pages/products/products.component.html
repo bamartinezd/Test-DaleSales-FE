@@ -1,0 +1,31 @@
+<a (click)="goToProductView(0)" class="btn btn-primary mb-2">
+  Nuevo...
+</a>
+
+<br>
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productItems">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.productName}}</td>
+        <td>{{product.unitValue}}</td>
+        <td>
+          <a (click)="goToProductView(product.id)" class="btn btn-secondary">
+            <i class="fas fa-edit"></i>
+          </a>
+          <a (click)="removeProduct(product.id)" class="btn btn-danger">
+            <i class="far fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>

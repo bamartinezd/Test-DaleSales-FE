@@ -1,0 +1,18 @@
+<form autocomplete="off" (ngSubmit)="saveProduct(form)" #form="ngForm">
+    <div class="mb-3">
+        <label for="productName" class="form-label">Producto</label>
+        <input class="form-control" type="text" name="productName" placeholder="Producto"
+            [ngModel]="product.productName" required minlength="5" #productName="ngModel" />
+        <small *ngIf="productName.invalid" class="form-text text-danger">Ingrese 5
+            letras</small>
+    </div>
+    <div class="mb-3">
+        <label for="unitValue" class="form-label">Precio</label>
+        <input class="form-control" type="text" name="unitValue" placeholder="Producto" [ngModel]="product.unitValue"
+            required minlength="3" #unitValue="ngModel" />
+        <small *ngIf="unitValue.invalid" class="form-text text-danger">Ingrese 3
+            digitos</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
