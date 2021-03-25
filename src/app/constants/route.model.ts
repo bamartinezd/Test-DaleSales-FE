@@ -3,6 +3,7 @@ export class RouterModel {
         HOME: 'home',
         CLIENTS:'clients',
         PRODUCTS: 'products',
-        PRODUCTS_VIEW: 'product/:productId'
+        PRODUCTS_VIEW: 'product/:productId',
+        CLIENTS_VIEW: 'client/:clientId'
     }
 }

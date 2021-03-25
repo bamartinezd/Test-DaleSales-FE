@@ -1,0 +1,39 @@
+<form autocomplete="off" (ngSubmit)="saveClient(form)" #form="ngForm">
+    <div class="mb-3">
+        <label for="id" class="form-label">Cedula</label>
+        <input class="form-control" type="text" name="id" placeholder="Cliente" [ngModel]="client.id"
+            required minlength="3" #id="ngModel" />
+        <small *ngIf="id.invalid" class="form-text text-danger">Ingrese al menos 3
+            digitos</small>
+    </div>
+    <div class="mb-3">
+        <label for="firstName" class="form-label">Nombres</label>
+        <input class="form-control" type="text" name="firstName" placeholder="Cliente"
+            [ngModel]="client.firstName" required minlength="5" #firstName="ngModel" />
+        <small *ngIf="firstName.invalid" class="form-text text-danger">Ingrese al menos 5
+            letras</small>
+    </div>
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Apellidos</label>
+        <input class="form-control" type="text" name="lastName" placeholder="Cliente"
+            [ngModel]="client.lastName" required minlength="5" #lastName="ngModel" />
+        <small *ngIf="lastName.invalid" class="form-text text-danger">Ingrese al menos 5
+            letras</small>
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">Telefono</label>
+        <input class="form-control" type="text" name="phone" placeholder="Cliente" [ngModel]="client.phone"
+            required minlength="3" #phone="ngModel" />
+        <small *ngIf="phone.invalid" class="form-text text-danger">Ingrese al menos 3
+            digitos</small>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input class="form-control" type="text" name="email" placeholder="Cliente"
+            [ngModel]="client.email" required minlength="5" #email="ngModel" />
+        <small *ngIf="email.invalid" class="form-text text-danger">Ingrese al menos 5
+            letras</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

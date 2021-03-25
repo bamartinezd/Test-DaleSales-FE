@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
+import { RouterModel } from 'src/app/constants/route.model';
 import { ClientModel } from "src/app/models/client.model";
 import { ClientService } from 'src/app/services/client.service';
 
@@ -11,8 +14,9 @@ import { ClientService } from 'src/app/services/client.service';
 export class ClientsComponent implements OnInit {
 
   public clientItems: ClientModel[]=[];
+  public ROUTES = RouterModel.ROUTES;
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService, private route: Router) { }
 
   ngOnInit(): void {
     this.initializeData();
@@ -22,6 +26,10 @@ export class ClientsComponent implements OnInit {
     this.getClients();
   }
 
+  public goToClientView(clientId: number):void {
+    this.route.navigate(['client',clientId]);
+  }
+
   private getClients(): void {
     this.clientService.getClients()
     .subscribe((result) => {
@@ -29,6 +37,17 @@ export class ClientsComponent implements OnInit {
       console.log(result);
     }, error => {
       console.error(error);
+    });
+  }
+
+  public removeClient(id: number):void {
+    this.clientService.deleteClient(id)
+    .pipe(finalize(()=>{
+      this.getClients();
+    }))
+    .subscribe(result => {
+      console.log(result);
+      
     });
   }
 

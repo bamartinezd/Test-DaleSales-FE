@@ -8,6 +8,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductViewComponent } from './pages/product-view/product-view.component';
+import { ClientViewComponent } from './pages/client-view/client-view.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductViewComponent } from './pages/product-view/product-view.componen
     NavbarComponent,
     ProductsComponent,
     ClientsComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    ClientViewComponent
   ],
   imports: [
     BrowserModule,
